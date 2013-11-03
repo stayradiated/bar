@@ -8,11 +8,13 @@ body {
 section {
   width: 33.33%;
   float: left;
+  box-sizing: border-box;
 }
 
 .left {
   /*background: blue;*/
   text-align: left;
+  padding-left: 10px;
 }
 
 .center {
@@ -23,4 +25,5 @@ section {
 .right {
   /*background: green;*/
   text-align: right;
+  padding-right: 10px;
 }

@@ -1,7 +1,7 @@
 fs      = require 'fs'
 Scrunch = require 'coffee-scrunch'
 
-input  = './source/config.coffee'
+input  = './source/bar.coffee'
 output = './app/bar.js'
 
 init = (scrunch) ->

@@ -5,8 +5,8 @@
   "main": "app/index.html",
   "window": {
     "toolbar": true,
-    "height": 40,
-    "width": 1920,
+    "height": 100,
+    "width": 1000,
     "resizable": false,
     "as_desktop": true,
     "frame": false
