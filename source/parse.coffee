@@ -16,17 +16,15 @@ parse = (data) ->
 
   isCommand = no
 
-  _block = null
+  block = null
 
-  block = ->
-    if _block then return _block
-    return newBlock()
+  createNewBlock = (obj = block) ->
+    if block?.text.length is 0 then return block
+    block = new Block(obj)
+    info.push block
+    return block
 
-  newBlock = (obj = _block) ->
-    if _block?.text.length is 0 then return _block
-    _block = new Block(obj)
-    info.push _block
-    return _block
+  createNewBlock()
 
   for char in text
 
@@ -36,18 +34,18 @@ parse = (data) ->
 
       # Double backslash is a literal backslash
       if char is '\\'
-        block().text += '\\'
+        block.text += '\\'
       else
-        newBlock()
+        createNewBlock()
 
       # Possible commands
       switch char
         when 'l'
-          block().position = 'left'
+          block.position = 'left'
         when 'c'
-          block().position = 'center'
+          block.position = 'center'
         when 'r'
-          block().position = 'right'
+          block.position = 'right'
         when 'f'
           isForeground = yes
         when 'b'
@@ -61,15 +59,15 @@ parse = (data) ->
       if char is 'r'
         block.foreground = no
       else
-        block().foreground = parseInt char
+        block.foreground = parseInt char
 
     # Set background color
     else if isBackground
       isBackground = no
       if char is 'r'
-        block().background = no
+        block.background = no
       else
-        block().background = parseInt char
+        block.background = parseInt char
 
     # Set underline color
     else if isUnderline
@@ -77,7 +75,7 @@ parse = (data) ->
       if char is 'r'
         block.underline = no
       else
-        block().underline = parseInt char
+        block.underline = parseInt char
 
     # Backslash is the command char
     else if char is '\\'
@@ -85,7 +83,7 @@ parse = (data) ->
 
     # Standard text
     else
-      block().text += char
+      block.text += char
 
   return info
 
