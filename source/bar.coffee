@@ -1,8 +1,9 @@
 gui = app = win = doc = null
 
-parse  = require './parse'
-config = require './config'
-socket = require './socket'
+parse    = require './parse'
+config   = require './config'
+socket   = require './socket'
+template = require './template'
 
 bar =
   init: ->
@@ -35,7 +36,7 @@ bar =
         if not reset[block.position]?
           el[block.position].innerHTML = ''
           reset[block.position] = yes
-        el[block.position].innerHTML += block.text
+        el[block.position].innerHTML += template block
 
     # debugging
     doc.addEventListener 'keydown', (event) ->

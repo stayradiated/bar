@@ -11,6 +11,10 @@ section {
   box-sizing: border-box;
 }
 
+span {
+  border-bottom: 2px solid transparent;
+}
+
 .left {
   /*background: blue;*/
   text-align: left;
