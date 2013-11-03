@@ -9,7 +9,11 @@ bar =
 
     # Set size and position
     app.resizeTo win.screen.width, config.height
-    app.moveTo(0, 0)
+
+    if config.position is 'bottom'
+      app.moveTo 0, win.screen.height - config.height
+    else
+      app.moveTo 0, 0
 
     # Set font
     doc.body.style.font = config.font
