@@ -8,12 +8,14 @@ body {
 }
 
 section {
+  min-height: 1px;
   width: 33.33%;
   float: left;
   box-sizing: border-box;
 }
 
 span {
+  display: inline-block;
   border-bottom: 2px solid transparent;
 }
 

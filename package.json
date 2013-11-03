@@ -9,7 +9,8 @@
     "width": 1000,
     "resizable": false,
     "as_desktop": true,
-    "frame": false
+    "frame": false,
+    "transparent": true
   },
   "scripts": {
     "test": "mocha --compilers coffee:coffee-script test",
