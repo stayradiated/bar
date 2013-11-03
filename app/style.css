@@ -1,0 +1,26 @@
+body {
+  background: #1D1F21;
+  color: #fff;
+  font: 13px/40px 'PanicSans';
+  margin: 0;
+}
+
+section {
+  width: 33.33%;
+  float: left;
+}
+
+.left {
+  /*background: blue;*/
+  text-align: left;
+}
+
+.center {
+  /*background: red;*/
+  text-align: center;
+}
+
+.right {
+  /*background: green;*/
+  text-align: right;
+}

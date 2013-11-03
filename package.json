@@ -2,7 +2,15 @@
   "name": "bar",
   "version": "0.0.1",
   "description": "bar to display text",
-  "main": "app/bar.js",
+  "main": "app/index.html",
+  "window": {
+    "toolbar": true,
+    "height": 40,
+    "width": 1920,
+    "resizable": false,
+    "as_desktop": true,
+    "frame": false
+  },
   "scripts": {
     "test": "mocha test"
   },
