@@ -26,8 +26,16 @@ bar =
 
     # Listen on socket
     server = socket (buffer) ->
-      data = parse buffer
-      el.left.innerHTML = data
+      info = parse buffer
+      reset = {}
+
+      console.log info
+
+      for block in info
+        if not reset[block.position]?
+          el[block.position].innerHTML = ''
+          reset[block.position] = yes
+        el[block.position].innerHTML += block.text
 
     # debugging
     doc.addEventListener 'keydown', (event) ->
