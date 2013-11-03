@@ -1,31 +1,51 @@
-gui = require 'nw.gui'
-win = gui.Window.get()
+gui = app = win = doc = null
 
+parse  = require './parse'
 config = require './config'
+socket = require './socket'
 
-window.bar =
+bar =
   init: ->
 
     # Set size and position
-    win.resizeTo window.screen.width, config.height
-    win.moveTo(0, 0)
+    app.resizeTo win.screen.width, config.height
+    app.moveTo(0, 0)
 
     # Set font
-    document.body.style.font = config.font
+    doc.body.style.font = config.font
 
-# debugging
-document.addEventListener 'keydown', (event) ->
+    # Cache DOM elements
+    el =
+      left: doc.querySelector '.left'
+      center: doc.querySelector '.center'
+      right: doc.querySelector '.right'
 
-  switch event.keyCode
+    # Listen on socket
+    server = socket (buffer) ->
+      data = parse buffer
+      el.left.innerHTML = data
 
-    when 82 # r
-      if event.ctrlKey
-        win.reloadDev()
+    # debugging
+    doc.addEventListener 'keydown', (event) ->
 
-    when 68 # d
-      if event.ctrlKey
-        win.showDevTools()
+      switch event.keyCode
 
-    when 81 # q
-      if event.ctrlKey
-        win.close()
+        when 82 # r
+          if event.ctrlKey
+            app.reloadDev()
+
+        when 68 # d
+          if event.ctrlKey
+            app.showDevTools()
+
+        when 81 # q
+          if event.ctrlKey
+            server.close()
+            app.close()
+
+module.exports = (_gui, _app, _win) ->
+  gui = _gui
+  app = _app
+  win = _win
+  doc = win.document
+  return bar
