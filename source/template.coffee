@@ -34,7 +34,7 @@ template = (block) ->
     if fg? then 'color: ' + fg + '; ' else ''
   }#{
     if border? then 'border-bottom-color: ' + border + '; ' else ''
-  }"">#{ block.text }</span>"""
+  }">#{ block.text }</span>"""
 
   return html
 

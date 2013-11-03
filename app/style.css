@@ -1,7 +1,9 @@
 body {
   background: #1D1F21;
   color: #fff;
-  font: 13px/40px 'PanicSans';
+  font-size: 12px;
+  line-height: 26px;
+  font-family: 'PanicSans';
   margin: 0;
 }
 
@@ -16,18 +18,15 @@ span {
 }
 
 .left {
-  /*background: blue;*/
   text-align: left;
   padding-left: 10px;
 }
 
 .center {
-  /*background: red;*/
   text-align: center;
 }
 
 .right {
-  /*background: green;*/
   text-align: right;
   padding-right: 10px;
 }

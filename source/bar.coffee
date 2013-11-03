@@ -26,13 +26,16 @@ bar =
     # Listen on socket
     server = socket (buffer) ->
       info = parse buffer
-      reset = {}
+      html = {}
 
+      # Generate html
       for block in info
-        if not reset[block.position]?
-          el[block.position].innerHTML = ''
-          reset[block.position] = yes
-        el[block.position].innerHTML += template block
+        html[block.position] ?= ''
+        html[block.position] += template(block)
+
+      # Insert into DOM
+      for position, content of html
+        el[position].innerHTML = content
 
     # Debugging
     doc.addEventListener 'keydown', (event) ->
@@ -42,11 +45,6 @@ bar =
         when 68 # d
           if event.ctrlKey
             app.showDevTools()
-
-        when 81 # q
-          if event.ctrlKey
-            server.close()
-            app.close()
 
 module.exports = (_gui, _app, _win) ->
   gui = _gui
