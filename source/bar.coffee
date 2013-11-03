@@ -8,16 +8,14 @@ template = require './template'
 bar =
   init: ->
 
-    # Set size and position
+    # Set size
     app.resizeTo win.screen.width, config.height
 
+    # Set position
     if config.position is 'bottom'
       app.moveTo 0, win.screen.height - config.height
     else
       app.moveTo 0, 0
-
-    # Set font
-    doc.body.style.font = config.font
 
     # Cache DOM elements
     el =
@@ -30,22 +28,16 @@ bar =
       info = parse buffer
       reset = {}
 
-      console.log info
-
       for block in info
         if not reset[block.position]?
           el[block.position].innerHTML = ''
           reset[block.position] = yes
         el[block.position].innerHTML += template block
 
-    # debugging
+    # Debugging
     doc.addEventListener 'keydown', (event) ->
 
       switch event.keyCode
-
-        when 82 # r
-          if event.ctrlKey
-            app.reloadDev()
 
         when 68 # d
           if event.ctrlKey
