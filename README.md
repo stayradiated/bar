@@ -18,3 +18,7 @@ Negatives:
   - Has a shadow
   - Can be moved by window managers
   - Rounded corners
+
+## Multiple Desktops
+
+To show on multiple desktops, right click the dock icon, and select **Options** > ***All Desktops**.
