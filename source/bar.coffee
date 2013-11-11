@@ -37,6 +37,11 @@ bar =
       for position, content of html
         el[position].innerHTML = content
 
+    # Be sure to close the socket
+    win.on 'close', ->
+      server.close()
+      @close(true)
+
     # Debugging
     doc.addEventListener 'keydown', (event) ->
 
