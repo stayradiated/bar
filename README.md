@@ -21,4 +21,4 @@ Negatives:
 
 ## Multiple Desktops
 
-To show on multiple desktops, right click the dock icon, and select **Options** > ***All Desktops**.
+To show on multiple desktops, right click the dock icon, and select **Options** > **All Desktops**.
