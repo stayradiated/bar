@@ -6,6 +6,7 @@ socket   = require './socket'
 template = require './template'
 
 bar =
+
   init: ->
 
     # Set size
@@ -19,9 +20,9 @@ bar =
 
     # Cache DOM elements
     el =
-      left: doc.querySelector '.left'
+      left:   doc.querySelector '.left'
       center: doc.querySelector '.center'
-      right: doc.querySelector '.right'
+      right:  doc.querySelector '.right'
 
     # Listen on socket
     server = socket (buffer) ->
@@ -38,7 +39,7 @@ bar =
         el[position].innerHTML = content
 
     # Be sure to close the socket
-    win.on 'close', ->
+    app.on 'close', ->
       server.close()
       @close(true)
 
@@ -51,9 +52,9 @@ bar =
           if event.ctrlKey
             app.showDevTools()
 
-module.exports = (_gui, _app, _win) ->
+module.exports = (_gui, _app, _win, _doc) ->
   gui = _gui
   app = _app
   win = _win
-  doc = win.document
+  doc = _doc
   return bar
