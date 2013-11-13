@@ -22,3 +22,11 @@ Negatives:
 ## Multiple Desktops
 
 To show on multiple desktops, right click the dock icon, and select **Options** > **All Desktops**.
+
+## Shadows
+
+Either use the node-webkit transparency branch, or something like https://github.com/puffnfresh/toggle-osx-shadows
+
+## Rounded corners
+
+Edit the sartFile using https://github.com/alexzielenski/sartFileTool
