@@ -1,0 +1,68 @@
+// COLORS
+$colors: (
+  #151515, // 0. background
+  #C5C8C6, // 1. foreground
+  #282A2E, // 2. grey bg
+  #707880, // 3. grey fg
+  #AC4142, // 4. red
+  #90A959, // 5. green
+  #DE935F, // 6. orange
+  #F0C674, // 7. yellow
+  #6A9FB5, // 8. blue
+  #AA759F  // 9. magenta
+);
+
+$height: 26px;
+$underline_height: 2px;
+
+// Returns a color based on the zero index
+@function color($index) {
+  @return nth($colors, $index + 1);
+}
+
+body {
+  background: color(0);
+  color: color(1);
+  font-size: 17px;
+  line-height: $height;
+  font-family: 'Tamzen';
+  margin: 0;
+}
+
+section {
+  min-height: 1px;
+  width: 33.33%;
+  float: left;
+  box-sizing: border-box;
+}
+
+span {
+  display: inline-block;
+  white-space: pre;
+}
+
+@for $i from 0 to 10 {
+  span.bg-#{$i} {
+    background: color($i);
+  }
+  span.fg-#{$i} {
+    color: color($i);
+  }
+  span.ul-#{$i} {
+    height: $height - $underline_height;
+    border-bottom: $underline_height solid color($i);
+  }
+}
+
+
+.left {
+  text-align: left;
+}
+
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+}

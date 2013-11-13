@@ -3,15 +3,16 @@
 
 # **input**
 #
-# {
-#   background: #333,
-#   foreground: #555,
-#   underline: #123
+# block = {
+#   background: 0,
+#   foreground: 1,
+#   underline: 3,
+#   text: 'text'
 # }
 #
 # **output**
 #
-# <span style="background-color: #333, color: #555, border-bottom-color: #123">
+# <span class="bg-0 fg-1 ul-3">
 #   text
 # </span>
 
@@ -19,22 +20,15 @@ config = require './config'
 
 template = (block) ->
 
-  if block.foreground?
-    fg = config.colors[block.foreground]
-
-  if block.background?
-    bg = config.colors[block.background]
-
-  if block.underline?
-    border = config.colors[block.underline]
-
-  html = """<span style="#{
-    if bg? then 'background-color: ' + bg + '; ' else ''
+  html = """<span class="#{
+    if block.background? then 'bg-' + block.background + ' ' else ''
   }#{
-    if fg? then 'color: ' + fg + '; ' else ''
+    if block.foreground? then 'fg-' + block.foreground + ' ' else ''
   }#{
-    if border? then 'border-bottom-color: ' + border + '; ' else ''
-  }">#{ block.text }</span>"""
+    if block.underline?  then 'ul-' + block.underline  + ' ' else ''
+  }">#{
+    block.text
+  }</span>"""
 
   return html
 
