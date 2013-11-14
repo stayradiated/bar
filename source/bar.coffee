@@ -7,7 +7,7 @@ template = require './template'
 
 bar =
 
-  init: ->
+  snap: ->
 
     # Set size
     app.resizeTo win.screen.width, config.height
@@ -17,6 +17,12 @@ bar =
       app.moveTo 0, win.screen.height - config.height
     else
       app.moveTo 0, 0
+
+
+  init: ->
+
+    bar.snap()
+
 
     # Cache DOM elements
     el =
@@ -51,6 +57,9 @@ bar =
         when 68 # d
           if event.ctrlKey
             app.showDevTools()
+
+        when 17 # enter
+          bar.snap()
 
 module.exports = (_gui, _app, _win, _doc) ->
   gui = _gui
