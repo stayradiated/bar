@@ -12,7 +12,7 @@ $colors: (
   #AA759F  // 9. magenta
 );
 
-$height: 26px;
+$height: 22px;
 $underline_height: 2px;
 
 // Returns a color based on the zero index
@@ -23,9 +23,9 @@ $underline_height: 2px;
 body {
   background: color(0);
   color: color(1);
-  font-size: 17px;
+  font-size: 14px;
   line-height: $height;
-  font-family: 'Tamzen';
+  font-family: 'tamzen7x14';
   margin: 0;
 }
 

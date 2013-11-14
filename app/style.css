@@ -1,9 +1,9 @@
 body {
   background: #151515;
   color: #c5c8c6;
-  font-size: 17px;
-  line-height: 26px;
-  font-family: 'Tamzen';
+  font-size: 14px;
+  line-height: 22px;
+  font-family: 'tamzen7x14';
   margin: 0; }
 
 section {
@@ -23,7 +23,7 @@ span.fg-0 {
   color: #151515; }
 
 span.ul-0 {
-  height: 24px;
+  height: 20px;
   border-bottom: 2px solid #151515; }
 
 span.bg-1 {
@@ -33,7 +33,7 @@ span.fg-1 {
   color: #c5c8c6; }
 
 span.ul-1 {
-  height: 24px;
+  height: 20px;
   border-bottom: 2px solid #c5c8c6; }
 
 span.bg-2 {
@@ -43,7 +43,7 @@ span.fg-2 {
   color: #282a2e; }
 
 span.ul-2 {
-  height: 24px;
+  height: 20px;
   border-bottom: 2px solid #282a2e; }
 
 span.bg-3 {
@@ -53,7 +53,7 @@ span.fg-3 {
   color: #707880; }
 
 span.ul-3 {
-  height: 24px;
+  height: 20px;
   border-bottom: 2px solid #707880; }
 
 span.bg-4 {
@@ -63,7 +63,7 @@ span.fg-4 {
   color: #ac4142; }
 
 span.ul-4 {
-  height: 24px;
+  height: 20px;
   border-bottom: 2px solid #ac4142; }
 
 span.bg-5 {
@@ -73,7 +73,7 @@ span.fg-5 {
   color: #90a959; }
 
 span.ul-5 {
-  height: 24px;
+  height: 20px;
   border-bottom: 2px solid #90a959; }
 
 span.bg-6 {
@@ -83,7 +83,7 @@ span.fg-6 {
   color: #de935f; }
 
 span.ul-6 {
-  height: 24px;
+  height: 20px;
   border-bottom: 2px solid #de935f; }
 
 span.bg-7 {
@@ -93,7 +93,7 @@ span.fg-7 {
   color: #f0c674; }
 
 span.ul-7 {
-  height: 24px;
+  height: 20px;
   border-bottom: 2px solid #f0c674; }
 
 span.bg-8 {
@@ -103,7 +103,7 @@ span.fg-8 {
   color: #6a9fb5; }
 
 span.ul-8 {
-  height: 24px;
+  height: 20px;
   border-bottom: 2px solid #6a9fb5; }
 
 span.bg-9 {
@@ -113,7 +113,7 @@ span.fg-9 {
   color: #aa759f; }
 
 span.ul-9 {
-  height: 24px;
+  height: 20px;
   border-bottom: 2px solid #aa759f; }
 
 .left {

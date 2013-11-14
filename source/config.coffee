@@ -1,7 +1,7 @@
 
 config =
 
-  height: 26 # height of OSX panel
+  height: 22 # height of OSX panel
   position: 'top' # or 'bottom'
 
   # Unix socket path
