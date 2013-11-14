@@ -1,24 +1,12 @@
 #!/bin/sh
 
-# PANEL_FIFO set in .xinitrc
-
-# BAR_SCRIPT=./reader.sh
 PANEL_FIFO=/tmp/bar.fifo
 
-# Tell BSPWM to log events
-# bspc control --put-status
-
-# Display current title
-# [[ -z "$(pidof xtitle)" ]] && xtitle -sf 'T%s' > $PANEL_FIFO &
+[ -e $PANEL_FIFO ] && rm $PANEL_FIFO
+mkfifo $PANEL_FIFO
 
 # Display time
 ~/Github/baskerville/sutils/clock -s -i 10 -f 'S%a %H:%M' > $PANEL_FIFO &
-
-# Display battery status
-# exists battery && [[ -z "$(pidof battery)" ]] && battery -s -i 3 -f 'B%s %u' > $PANEL_FIFO &
-
-# Display currently connected wifi network
-# exists essid && [[ -z "$(pidof essid)" ]] && essid -s -i 5 -f 'X%s' > $PANEL_FIFO &
 
 # Run bar
 cat $PANEL_FIFO | ./printer.coffee

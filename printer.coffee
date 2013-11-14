@@ -48,3 +48,6 @@ read = (line) ->
         else if status is 'a'
           text += "\\u5\\b2\\f5#{name}\\ur\\br\\fr"
       output.write text
+
+    when 'T'
+      output.write "\\c#{ line }"
