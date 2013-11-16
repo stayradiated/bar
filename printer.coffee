@@ -33,7 +33,7 @@ read = (line) ->
 
     # clock
     when 'S'
-      output.write "\\r\\u5\\b2 #{line} "
+      output.write "\\r\\u3\\b2 #{line} "
 
     # workspace
     when 'W'
@@ -46,7 +46,7 @@ read = (line) ->
         if status is 'd'
           text += "\\f3#{name}\\fr"
         else if status is 'a'
-          text += "\\u5\\b2\\f5#{name}\\ur\\br\\fr"
+          text += "\\u3\\b2#{name}\\ur\\br"
       output.write text
 
     when 'T'

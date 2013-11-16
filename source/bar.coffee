@@ -4,6 +4,7 @@ parse    = require './parse'
 config   = require './config'
 socket   = require './socket'
 template = require './template'
+{exec}   = require 'child_process'
 
 bar =
 
@@ -18,11 +19,18 @@ bar =
     else
       app.moveTo 0, 0
 
+  reloadStyles: ->
+
+    for el in doc.querySelectorAll('link')
+      el.href = el.href.split('?')[0] + '?' + Date.now()
+
+  startScript: ->
+    if config.script?
+      exec config.script
 
   init: ->
 
     bar.snap()
-
 
     # Cache DOM elements
     el =
@@ -49,6 +57,9 @@ bar =
       server.close()
       @close(true)
 
+    # Start the script
+    bar.startScript()
+
     # Debugging
     doc.addEventListener 'keydown', (event) ->
 
@@ -58,7 +69,10 @@ bar =
           if event.ctrlKey
             app.showDevTools()
 
-        when 17 # enter
+        when 82 # r
+          bar.reloadStyles()
+
+        when 83 # s
           bar.snap()
 
 module.exports = (_gui, _app, _win, _doc) ->

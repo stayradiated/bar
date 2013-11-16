@@ -8,4 +8,7 @@ config =
   # WARNING: Will be deleted if it already exists
   socket: '/tmp/bar.sock'
 
+  # Script to run when we start the app
+  script: './init'
+
 module.exports = config

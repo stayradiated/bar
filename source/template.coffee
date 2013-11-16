@@ -21,11 +21,11 @@ config = require './config'
 template = (block) ->
 
   html = """<span class="#{
-    if block.background? then 'bg-' + block.background + ' ' else ''
+    if block.background > -1 then 'bg bg-' + block.background + ' ' else ''
   }#{
-    if block.foreground? then 'fg-' + block.foreground + ' ' else ''
+    if block.foreground > -1 then 'fg fg-' + block.foreground + ' ' else ''
   }#{
-    if block.underline?  then 'ul-' + block.underline  + ' ' else ''
+    if block.underline > -1  then 'ul ul-' + block.underline  + ' ' else ''
   }">#{
     block.text
   }</span>"""

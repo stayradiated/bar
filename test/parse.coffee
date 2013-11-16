@@ -11,9 +11,9 @@ describe 'Parse', ->
     assert.equal info.length, 1
     assert.equal info[0].text, input
     assert.equal info[0].position, 'left'
-    assert.equal info[0].underline, no
-    assert.equal info[0].foreground, no
-    assert.equal info[0].background, no
+    assert.equal info[0].underline, -1
+    assert.equal info[0].foreground, -1
+    assert.equal info[0].background, -1
 
   it 'text with a backslash', ->
 
@@ -64,6 +64,13 @@ describe 'Parse', ->
     assert.equal info[0].underline, 5
 
 
+  it 'no blank blocks', ->
+
+    input = '\\u5\\b2\\f5  1  \\ur\\br\\fr\\f3  2  \\fr\\f3  3  \\fr'
+    info = parse(input)
+
+    assert.equal info.length, 3
+
   it 'combine position and background', ->
 
     input = '\\ccentered \\b3text'
@@ -73,7 +80,7 @@ describe 'Parse', ->
 
     assert.equal info[0].text, 'centered '
     assert.equal info[0].position, 'center'
-    assert.equal info[0].background, no
+    assert.equal info[0].background, -1
 
     assert.equal info[1].text, 'text'
     assert.equal info[1].position, 'center'
@@ -128,7 +135,7 @@ describe 'Parse', ->
     assert.equal info[0].background, 3
 
     assert.equal info[1].text, ' without background'
-    assert.equal info[1].background, no
+    assert.equal info[1].background, -1
 
 
   it 'complex stuff', ->

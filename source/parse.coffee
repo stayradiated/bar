@@ -4,10 +4,10 @@ class Block
 
   constructor: (obj = {}) ->
     @text = ''
-    @position = if obj.position? then obj.position else 'left'
-    @underline = if obj.underline? then obj.underline else no
-    @foreground = if obj.foreground? then obj.foreground else no
-    @background = if obj.background? then obj.background else no
+    @position   = if obj.position?   then obj.position else 'left'
+    @underline  = if obj.underline?  then obj.underline else -1
+    @foreground = if obj.foreground? then obj.foreground else -1
+    @background = if obj.background? then obj.background else -1
 
 parse = (data) ->
 
@@ -57,7 +57,7 @@ parse = (data) ->
     else if isForeground
       isForeground = no
       if char is 'r'
-        block.foreground = no
+        block.foreground = -1
       else
         block.foreground = parseInt char
 
@@ -65,7 +65,7 @@ parse = (data) ->
     else if isBackground
       isBackground = no
       if char is 'r'
-        block.background = no
+        block.background = -1
       else
         block.background = parseInt char
 
@@ -73,7 +73,7 @@ parse = (data) ->
     else if isUnderline
       isUnderline = no
       if char is 'r'
-        block.underline = no
+        block.underline = -1
       else
         block.underline = parseInt char
 
@@ -84,6 +84,10 @@ parse = (data) ->
     # Standard text
     else
       block.text += char
+
+  # If last block is empty, remove it
+  if info[info.length - 1].text is ''
+    info.splice -1
 
   return info
 
