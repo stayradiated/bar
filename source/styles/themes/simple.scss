@@ -1,29 +1,8 @@
-// COLORS
-$colors: (
-  // #151515, // 0. background
-  #212E39,
-  #719DD9, // 1. foreground
-  // #282A2E, // 2. grey bg
-  #233243,
-  #707880, // 3. grey fg
-  #AC4142, // 4. red
-  #90A959, // 5. green
-  #DE935F, // 6. orange
-  #F0C674, // 7. yellow
-  #6A9FB5, // 8. blue
-  #AA759F  // 9. magenta
-);
 
-$height: 22px;
-$underline_height: 2px;
-$font-size: 14px;
-$font-family: 'tamzen7x14';
-$border: rgba(255,255,255,0.1);
+// THEME SETTINGS
+$border: rgba(#fff, 0.3);
 
-// Returns a color based on the zero index
-@function color($index) {
-  @return nth($colors, $index + 1);
-}
+
 
 body {
   background: color(0);

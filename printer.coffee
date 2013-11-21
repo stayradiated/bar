@@ -33,7 +33,8 @@ read = (line) ->
 
     # clock
     when 'S'
-      output.write "\\r\\u3\\b2 #{line} "
+      line = line.split '-'
+      output.write "\\r #{line[0]} \\b0 #{line[1]} \\b0 #{line[2]}"
 
     # workspace
     when 'W'
@@ -43,10 +44,12 @@ read = (line) ->
         number = workspace[1]
         name = workspaces[number]
 
-        if status is 'd'
-          text += "\\f3#{name}\\fr"
-        else if status is 'a'
-          text += "\\u3\\b2#{name}\\ur\\br"
+        if status is 'd' # inactive
+          text += "\\b0#{ name }"
+
+        else if status is 'a' # active
+          text += "\\b2\\f3#{name}\\fr\\br"
+
       output.write text
 
     when 'T'

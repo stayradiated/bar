@@ -1,119 +1,441 @@
+/**
+ * ARROW
+ * These styles are used for every single arrow
+ */
+.arrow-in, .arrow-out {
+  top: 0;
+  height: 22px;
+  display: block;
+  position: absolute; }
+  .arrow-in:before, .arrow-out:before, .arrow-in:after, .arrow-out:after {
+    top: 0;
+    width: 0;
+    height: 0;
+    content: "";
+    position: absolute;
+    border-top: 11px solid transparent;
+    border-bottom: 11px solid transparent; }
+
+/**
+ * ARROW BLOCK
+ * This goes on the .arrow-in, .arrow-out divs
+ */
 body {
-  background: #212e39;
-  color: #719dd9;
-  line-height: 22px;
-  font-family: "tamzen7x14";
+  background: #9bd3e0;
   margin: 0; }
 
+/**
+ * SECTIONS
+ * The left, right and center containers that hold blocks
+ */
 .sections {
-  height: 22px;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1); }
+  background: #70bac8;
+  font-size: 0;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 0px #4ba8ba; }
 
-section {
-  min-height: 1px;
-  width: 33.33%;
-  float: left;
-  box-sizing: border-box;
-  font-size: 0; }
-
-span {
+/**
+ * BLOCK
+ * A single block of text
+ */
+.block {
   display: inline-block;
-  white-space: pre;
-  font-size: 14px;
-  vertical-align: top;
-  height: 22px;
   position: relative; }
-  span:after {
-    display: block;
-    content: '';
-    position: absolute;
-    top: -1px;
-    bottom: -1px;
-    width: 2px;
-    background: rgba(0, 0, 0, 0.2);
-    border-left: 1px solid rgba(255, 255, 255, 0.1);
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
-    margin-left: -1px;
-    margin-right: -1px; }
-  span.ul {
-    height: 20px;
-    border-bottom: 2px solid transparent; }
-  span.bg-0 {
-    background: #212e39; }
-  span.fg-0 {
-    color: #212e39; }
-  span.ul-0 {
-    border-bottom-color: #212e39; }
-  span.bg-1 {
-    background: #719dd9; }
-  span.fg-1 {
-    color: #719dd9; }
-  span.ul-1 {
-    border-bottom-color: #719dd9; }
-  span.bg-2 {
-    background: #233243; }
-  span.fg-2 {
-    color: #233243; }
-  span.ul-2 {
-    border-bottom-color: #233243; }
-  span.bg-3 {
-    background: #707880; }
-  span.fg-3 {
-    color: #707880; }
-  span.ul-3 {
-    border-bottom-color: #707880; }
-  span.bg-4 {
-    background: #ac4142; }
-  span.fg-4 {
+  .block.bg-0 .text {
+    background: #70bac8;
+    border-top: 0px solid #4ba8ba;
+    border-bottom: 0px solid #4ba8ba; }
+    .block.bg-0 .text:before, .block.bg-0 .text:after {
+      background: #4ba8ba; }
+  .block.fg-0 .text {
+    color: #70bac8; }
+  .block.ul-0 .text {
+    border-bottom-color: #70bac8; }
+  .block.bg-1 .text {
+    background: #3d3d3d;
+    border-top: 0px solid #242424;
+    border-bottom: 0px solid #242424; }
+    .block.bg-1 .text:before, .block.bg-1 .text:after {
+      background: #242424; }
+  .block.fg-1 .text {
+    color: #3d3d3d; }
+  .block.ul-1 .text {
+    border-bottom-color: #3d3d3d; }
+  .block.bg-2 .text {
+    background: #c60000;
+    border-top: 0px solid #930000;
+    border-bottom: 0px solid #930000; }
+    .block.bg-2 .text:before, .block.bg-2 .text:after {
+      background: #930000; }
+  .block.fg-2 .text {
+    color: #c60000; }
+  .block.ul-2 .text {
+    border-bottom-color: #c60000; }
+  .block.bg-3 .text {
+    background: #eeeeee;
+    border-top: 0px solid #d4d4d4;
+    border-bottom: 0px solid #d4d4d4; }
+    .block.bg-3 .text:before, .block.bg-3 .text:after {
+      background: #d4d4d4; }
+  .block.fg-3 .text {
+    color: #eeeeee; }
+  .block.ul-3 .text {
+    border-bottom-color: #eeeeee; }
+  .block.bg-4 .text {
+    background: #ac4142;
+    border-top: 0px solid #873334;
+    border-bottom: 0px solid #873334; }
+    .block.bg-4 .text:before, .block.bg-4 .text:after {
+      background: #873334; }
+  .block.fg-4 .text {
     color: #ac4142; }
-  span.ul-4 {
+  .block.ul-4 .text {
     border-bottom-color: #ac4142; }
-  span.bg-5 {
-    background: #90a959; }
-  span.fg-5 {
+  .block.bg-5 .text {
+    background: #90a959;
+    border-top: 0px solid #748847;
+    border-bottom: 0px solid #748847; }
+    .block.bg-5 .text:before, .block.bg-5 .text:after {
+      background: #748847; }
+  .block.fg-5 .text {
     color: #90a959; }
-  span.ul-5 {
+  .block.ul-5 .text {
     border-bottom-color: #90a959; }
-  span.bg-6 {
-    background: #de935f; }
-  span.fg-6 {
+  .block.bg-6 .text {
+    background: #de935f;
+    border-top: 0px solid #d57635;
+    border-bottom: 0px solid #d57635; }
+    .block.bg-6 .text:before, .block.bg-6 .text:after {
+      background: #d57635; }
+  .block.fg-6 .text {
     color: #de935f; }
-  span.ul-6 {
+  .block.ul-6 .text {
     border-bottom-color: #de935f; }
-  span.bg-7 {
-    background: #f0c674; }
-  span.fg-7 {
+  .block.bg-7 .text {
+    background: #f0c674;
+    border-top: 0px solid #ebb346;
+    border-bottom: 0px solid #ebb346; }
+    .block.bg-7 .text:before, .block.bg-7 .text:after {
+      background: #ebb346; }
+  .block.fg-7 .text {
     color: #f0c674; }
-  span.ul-7 {
+  .block.ul-7 .text {
     border-bottom-color: #f0c674; }
-  span.bg-8 {
-    background: #6a9fb5; }
-  span.fg-8 {
-    color: #6a9fb5; }
-  span.ul-8 {
-    border-bottom-color: #6a9fb5; }
-  span.bg-9 {
-    background: #aa759f; }
-  span.fg-9 {
-    color: #aa759f; }
-  span.ul-9 {
-    border-bottom-color: #aa759f; }
+  .block.bg-8 .text {
+    background: #6a9fb4;
+    border-top: 0px solid #4f869c;
+    border-bottom: 0px solid #4f869c; }
+    .block.bg-8 .text:before, .block.bg-8 .text:after {
+      background: #4f869c; }
+  .block.fg-8 .text {
+    color: #6a9fb4; }
+  .block.ul-8 .text {
+    border-bottom-color: #6a9fb4; }
+  .block.bg-9 .text {
+    background: #1a1a1a;
+    border-top: 0px solid black;
+    border-bottom: 0px solid black; }
+    .block.bg-9 .text:before, .block.bg-9 .text:after {
+      background: black; }
+  .block.fg-9 .text {
+    color: #1a1a1a; }
+  .block.ul-9 .text {
+    border-bottom-color: #1a1a1a; }
 
-.left {
-  text-align: left; }
-  .left span {
-    margin-right: 2px; }
-  .left span:after {
+/**
+ * TEXT
+ * The text
+ */
+.text {
+  display: block;
+  color: #3d3d3d;
+  font-size: 14px;
+  height: 22px;
+  line-height: 22px;
+  font-family: "tamzen7x14";
+  background: #70bac8;
+  padding: 0 8px;
+  border-top: 0px solid #4ba8ba;
+  border-bottom: 0px solid #4ba8ba;
+  box-sizing: border-box; }
+  .text::before, .text:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 0px;
+    height: 22px;
+    background: #4ba8ba; }
+  .text:before {
+    z-index: 5; }
+  .text:after {
+    z-index: 15; }
+
+/**
+ * ARROWS
+ */
+.arrow-in {
+  width: 8px;
+  background: #9bd3e0; }
+  .arrow-in:before, .arrow-in:after {
+    z-index: 10; }
+  .left .arrow-in:before, .left .arrow-in:after {
     left: 100%; }
+  .left .bg-0 .arrow-in:before {
+    border-left: 6px solid #4ba8ba; }
+  .left .bg-1 .arrow-in:before {
+    border-left: 6px solid #242424; }
+  .left .bg-2 .arrow-in:before {
+    border-left: 6px solid #930000; }
+  .left .bg-3 .arrow-in:before {
+    border-left: 6px solid #d4d4d4; }
+  .left .bg-4 .arrow-in:before {
+    border-left: 6px solid #873334; }
+  .left .bg-5 .arrow-in:before {
+    border-left: 6px solid #748847; }
+  .left .bg-6 .arrow-in:before {
+    border-left: 6px solid #d57635; }
+  .left .bg-7 .arrow-in:before {
+    border-left: 6px solid #ebb346; }
+  .left .bg-8 .arrow-in:before {
+    border-left: 6px solid #4f869c; }
+  .left .bg-9 .arrow-in:before {
+    border-left: 6px solid black; }
+  .left .arrow-in:before {
+    border-left: 6px solid #4ba8ba; }
+  .left .arrow-in:after {
+    margin-left: 0px;
+    border-left: 6px solid #9bd3e0; }
+  .right .arrow-in:before, .right .arrow-in:after {
+    right: 100%; }
+  .right .bg-0 .arrow-in:before {
+    border-right: 6px solid #4ba8ba; }
+  .right .bg-1 .arrow-in:before {
+    border-right: 6px solid #242424; }
+  .right .bg-2 .arrow-in:before {
+    border-right: 6px solid #930000; }
+  .right .bg-3 .arrow-in:before {
+    border-right: 6px solid #d4d4d4; }
+  .right .bg-4 .arrow-in:before {
+    border-right: 6px solid #873334; }
+  .right .bg-5 .arrow-in:before {
+    border-right: 6px solid #748847; }
+  .right .bg-6 .arrow-in:before {
+    border-right: 6px solid #d57635; }
+  .right .bg-7 .arrow-in:before {
+    border-right: 6px solid #ebb346; }
+  .right .bg-8 .arrow-in:before {
+    border-right: 6px solid #4f869c; }
+  .right .bg-9 .arrow-in:before {
+    border-right: 6px solid black; }
+  .right .arrow-in:before {
+    border-right: 6px solid #4ba8ba; }
+  .right .arrow-in:after {
+    margin-right: 0px;
+    border-right: 6px solid #9bd3e0; }
 
-.center {
-  text-align: center; }
-  .center span:after {
+.arrow-out:before, .arrow-out:after {
+  z-index: 20; }
+.left .arrow-out:before, .left .arrow-out:after {
+  left: 100%; }
+.left .bg-0 .arrow-out:before {
+  border-left: 6px solid #4ba8ba; }
+.left .bg-0 .arrow-out:after {
+  border-left: 6px solid #70bac8; }
+.left .bg-1 .arrow-out:before {
+  border-left: 6px solid #242424; }
+.left .bg-1 .arrow-out:after {
+  border-left: 6px solid #3d3d3d; }
+.left .bg-2 .arrow-out:before {
+  border-left: 6px solid #930000; }
+.left .bg-2 .arrow-out:after {
+  border-left: 6px solid #c60000; }
+.left .bg-3 .arrow-out:before {
+  border-left: 6px solid #d4d4d4; }
+.left .bg-3 .arrow-out:after {
+  border-left: 6px solid #eeeeee; }
+.left .bg-4 .arrow-out:before {
+  border-left: 6px solid #873334; }
+.left .bg-4 .arrow-out:after {
+  border-left: 6px solid #ac4142; }
+.left .bg-5 .arrow-out:before {
+  border-left: 6px solid #748847; }
+.left .bg-5 .arrow-out:after {
+  border-left: 6px solid #90a959; }
+.left .bg-6 .arrow-out:before {
+  border-left: 6px solid #d57635; }
+.left .bg-6 .arrow-out:after {
+  border-left: 6px solid #de935f; }
+.left .bg-7 .arrow-out:before {
+  border-left: 6px solid #ebb346; }
+.left .bg-7 .arrow-out:after {
+  border-left: 6px solid #f0c674; }
+.left .bg-8 .arrow-out:before {
+  border-left: 6px solid #4f869c; }
+.left .bg-8 .arrow-out:after {
+  border-left: 6px solid #6a9fb4; }
+.left .bg-9 .arrow-out:before {
+  border-left: 6px solid black; }
+.left .bg-9 .arrow-out:after {
+  border-left: 6px solid #1a1a1a; }
+.left .arrow-out:before {
+  border-left: 6px solid #4ba8ba; }
+.left .arrow-out:after {
+  margin-left: 0px;
+  border-left: 6px solid #70bac8; }
+.right .arrow-out:before, .right .arrow-out:after {
+  right: 100%; }
+.right .bg-0 .arrow-out:before {
+  border-right: 6px solid #4ba8ba; }
+.right .bg-0 .arrow-out:after {
+  border-right: 6px solid #70bac8; }
+.right .bg-1 .arrow-out:before {
+  border-right: 6px solid #242424; }
+.right .bg-1 .arrow-out:after {
+  border-right: 6px solid #3d3d3d; }
+.right .bg-2 .arrow-out:before {
+  border-right: 6px solid #930000; }
+.right .bg-2 .arrow-out:after {
+  border-right: 6px solid #c60000; }
+.right .bg-3 .arrow-out:before {
+  border-right: 6px solid #d4d4d4; }
+.right .bg-3 .arrow-out:after {
+  border-right: 6px solid #eeeeee; }
+.right .bg-4 .arrow-out:before {
+  border-right: 6px solid #873334; }
+.right .bg-4 .arrow-out:after {
+  border-right: 6px solid #ac4142; }
+.right .bg-5 .arrow-out:before {
+  border-right: 6px solid #748847; }
+.right .bg-5 .arrow-out:after {
+  border-right: 6px solid #90a959; }
+.right .bg-6 .arrow-out:before {
+  border-right: 6px solid #d57635; }
+.right .bg-6 .arrow-out:after {
+  border-right: 6px solid #de935f; }
+.right .bg-7 .arrow-out:before {
+  border-right: 6px solid #ebb346; }
+.right .bg-7 .arrow-out:after {
+  border-right: 6px solid #f0c674; }
+.right .bg-8 .arrow-out:before {
+  border-right: 6px solid #4f869c; }
+.right .bg-8 .arrow-out:after {
+  border-right: 6px solid #6a9fb4; }
+.right .bg-9 .arrow-out:before {
+  border-right: 6px solid black; }
+.right .bg-9 .arrow-out:after {
+  border-right: 6px solid #1a1a1a; }
+.right .arrow-out:before {
+  border-right: 6px solid #4ba8ba; }
+.right .arrow-out:after {
+  margin-right: 0px;
+  border-right: 6px solid #70bac8; }
+
+/**
+ * LEFT AND RIGHT SECTIONS
+ * Special magic stuff
+ */
+.left {
+  float: left;
+  position: relative;
+  background: #9bd3e0; }
+  .left .arrow-in {
+    left: -8px; }
+  .left .arrow-out {
+    right: 0px; }
+  .left .text {
+    padding-left: 14px; }
+    .left .text:before {
+      left: 0; }
+    .left .text:after {
+      left: 100%; }
+  .left .block {
+    margin-right: 8px; }
+  .left .block:first-child .arrow-in {
     display: none; }
+  .left .block:first-child .text {
+    padding-left: 8px; }
+  .left:before, .left:after {
+    left: 100%;
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 0;
+    z-index: 10;
+    border-top: 11px solid transparent;
+    border-bottom: 11px solid transparent; }
+  .left:before {
+    border-left: 6px solid #4ba8ba; }
+  .left:after {
+    margin-left: 0px;
+    border-left: 6px solid #9bd3e0; }
 
 .right {
-  text-align: right; }
-  .right span {
-    margin-left: 2px; }
-  .right span:after {
-    right: 100%; }
+  float: right;
+  position: relative;
+  background: #9bd3e0; }
+  .right .arrow-in {
+    right: -8px; }
+  .right .arrow-out {
+    left: 0px; }
+  .right .text {
+    padding-right: 14px; }
+    .right .text:before {
+      right: 0; }
+    .right .text:after {
+      right: 100%; }
+  .right .block {
+    margin-left: 8px; }
+  .right .block:last-child .arrow-in {
+    display: none; }
+  .right .block:last-child .text {
+    padding-right: 8px; }
+  .right:before, .right:after {
+    right: 100%;
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 0;
+    z-index: 10;
+    border-top: 11px solid transparent;
+    border-bottom: 11px solid transparent; }
+  .right:before {
+    border-right: 6px solid #4ba8ba; }
+  .right:after {
+    margin-right: 0px;
+    border-right: 6px solid #9bd3e0; }
+
+/**
+ * CENTER
+ * The section in the center doesn't get arrows
+ */
+.center {
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center; }
+  .center .text {
+    border-left: 1px solid #4ba8ba;
+    border-right: 1px solid #4ba8ba;
+    margin: 0 3px; }
+    .center .text:before, .center .text:after {
+      width: 3px;
+      background: #9bd3e0; }
+    .center .text:before {
+      left: 0; }
+    .center .text:after {
+      right: 0; }
+  .center .block:first-child .text:before {
+    width: 6px;
+    left: -6px;
+    border-left: 0px solid #4ba8ba; }
+  .center .block:last-child .text:after {
+    width: 6px;
+    right: -6px;
+    border-right: 0px solid #4ba8ba; }
+  .center .arrow-in,
+  .center .arrow-out {
+    display: none; }

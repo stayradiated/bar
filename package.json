@@ -15,7 +15,8 @@
   "scripts": {
     "test": "mocha --compilers coffee:coffee-script test",
     "build": "coffee -c -o app/js/ source",
-    "watch": "coffee -c -w -o app/js/ source"
+    "watch": "coffee -c -w -o app/js/ source",
+    "css": "sass --watch source/styles/main.scss:app/style.css"
   },
   "repository": {
     "type": "git",
@@ -30,6 +31,7 @@
     "url": "https://github.com/stayradiated/bar/issues"
   },
   "dependencies": {
-    "coffee-script": "~1.6.3"
+    "coffee-script": "~1.6.3",
+    "coffee-scrunch": "~0.1.4"
   }
 }

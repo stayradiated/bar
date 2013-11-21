@@ -1,0 +1,332 @@
+
+
+// THEME SETTINGS
+
+$width:  6px;
+$margin: 8px;
+$center-margin: 3px;
+$border-width: 0px;
+$half-height: $height / 2;
+
+// Get the border color
+@function border($index) {
+  @return darken(color($index), 10);
+}
+
+// CUSTOMISABLE COLORS
+$body-bg:    color(10);
+$bar-bg:     color(0);
+$bar-border: border(0);
+
+// DEFAULT BLOCK STYLES
+$default-block-bg:   color(0);
+$default-block-text: color(1);
+$default-block-border: border(0);
+
+
+/**
+ * ARROW
+ * These styles are used for every single arrow
+ */
+
+%arrow {
+  top: 0;
+  height: $height;
+  display: block;
+  position: absolute;
+
+  &:before,
+  &:after {
+    top: 0;
+    width: 0;
+    height: 0;
+    content: "";
+    position: absolute;
+    border-top:       $half-height solid transparent;
+    border-bottom:    $half-height solid transparent;
+  }
+}
+
+
+/**
+ * ARROW BLOCK
+ * This goes on the .arrow-in, .arrow-out divs
+ */
+
+@mixin arrow-block ($bg, $z, $ignore-colors:false) {
+
+  @extend %arrow;
+
+  &:before,
+  &:after {
+    z-index: $z;
+  }
+
+  @each $dir in left, right {
+
+    .#{ $dir } &:before,
+    .#{ $dir } &:after {
+      #{ $dir }: 100%;
+    }
+
+    @for $i from 0 to 10 {
+
+      .#{ $dir } .bg-#{ $i } &:before {
+        border-#{ $dir }: $width solid border($i);
+      }
+
+      @if($ignore-colors == false) {
+        .#{ $dir } .bg-#{ $i } &:after {
+          border-#{ $dir }: $width solid color($i);
+        }
+      }
+
+    }
+
+    .#{ $dir } &:before {
+      border-#{ $dir }: $width solid $default-block-border;
+    }
+
+    .#{ $dir } &:after {
+      margin-#{ $dir }: -$border-width;
+      border-#{ $dir }: $width solid $bg;
+    }
+
+  }
+
+}
+
+body {
+  background: $body-bg;
+  margin: 0;
+}
+
+
+/**
+ * SECTIONS
+ * The left, right and center containers that hold blocks
+ */
+
+.sections {
+  background: $bar-bg;
+  font-size: 0;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 $border-width $bar-border;
+}
+
+
+
+/**
+ * BLOCK
+ * A single block of text
+ */
+
+.block {
+  display: inline-block;
+  position: relative;
+
+  @for $i from 0 to 10 {
+    &.bg-#{$i} .text {
+      background: color($i);
+      border-top: $border-width solid border($i);
+      border-bottom: $border-width solid border($i);
+      &:before,
+      &:after {
+        background: border($i);
+      }
+    }
+    &.fg-#{$i} .text {
+      color: color($i);
+    }
+    &.ul-#{$i} .text {
+      border-bottom-color: color($i);
+    }
+  }
+
+}
+
+
+/**
+ * TEXT
+ * The text
+ */
+
+.text {
+  display: block;
+  color: $default-block-text;
+  font-size: $font-size;
+  height: $height;
+  line-height: $height - $border-width;
+  font-family: $font-family;
+  background: $default-block-bg;
+  padding: 0 $margin;
+  border-top: $border-width solid $default-block-border;
+  border-bottom: $border-width solid $default-block-border;
+  box-sizing: border-box;
+
+  &::before,
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    width: $border-width;
+    height: $height;
+    background: $default-block-border;
+  }
+
+  &:before {
+    z-index: 5;
+  }
+
+  &:after {
+    z-index: 15;
+  }
+
+}
+
+
+/**
+ * ARROWS
+ */
+
+.arrow-in {
+  @include arrow-block($body-bg, 10, true);
+  width: $margin;
+  background: $body-bg;
+}
+
+.arrow-out {
+  @include arrow-block($default-block-bg, 20);
+}
+
+
+/**
+ * LEFT AND RIGHT SECTIONS
+ * Special magic stuff
+ */
+
+@each $dir in left, right {
+
+  $op: if($dir == left, right, left);
+
+  .#{ $dir } {
+
+    float: $dir;
+    position: relative;
+    background: $body-bg;
+
+
+    .arrow-in {
+      #{ $dir }: -$margin + $border-width;
+    }
+
+    .arrow-out {
+      #{ $op }: -$border-width;
+    }
+
+
+    .text {
+      padding-#{ $dir }: $margin + $width;
+
+      &:before {
+        #{ $dir }: 0;
+      }
+
+      &:after {
+        #{ $dir }: 100%;
+      }
+    }
+
+
+    .block {
+      margin-#{ $op }: $margin;
+    }
+
+    // Fix the blocks on the end of the bar
+    .block:#{ if($dir == left, first-child, last-child) } {
+      .arrow-in {
+        display: none;
+      }
+      .text {
+        padding-#{ $dir }: $margin;
+      }
+    }
+
+
+    &:before,
+    &:after {
+      #{ $dir }: 100%;
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 0;
+      height: 0;
+      z-index: 10;
+      border-top:       $half-height solid transparent;
+      border-bottom:    $half-height solid transparent;
+    }
+
+    &:before {
+      border-#{ $dir }: $width solid $bar-border;
+    }
+
+    &:after {
+      margin-#{ $dir }: -$border-width;
+      border-#{ $dir }: $width solid $body-bg;
+    }
+
+  }
+}
+
+
+
+/**
+ * CENTER
+ * The section in the center doesn't get arrows
+ */
+
+.center {
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+
+  .text {
+    border-left: 1px solid $default-block-border;
+    border-right: 1px solid $default-block-border;
+    margin: 0 $center-margin;
+
+    &:before,
+    &:after {
+      width: $center-margin;
+      background: $body-bg;
+    }
+
+    &:before {
+      left: 0;
+    }
+
+    &:after {
+      right: 0;
+    }
+
+  }
+
+  @each $dir in left, right {
+    $child: if($dir == left, first, last);
+    $pseduo: if($dir == left, before, after);
+    .block:#{ $child }-child .text:#{ $pseduo } {
+      width: $center-margin * 2;
+      #{ $dir }: ($center-margin * -2) + $border-width;
+      border-#{ $dir }: $border-width solid $bar-border;
+    }
+  }
+
+  .arrow-in,
+  .arrow-out {
+    display: none;
+  }
+
+}

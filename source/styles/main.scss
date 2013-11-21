@@ -1,0 +1,36 @@
+
+$colors: (
+
+  // 0 - 10 FOR SCSS AND SOCKET
+
+  #70BAC8, // 0. background
+  #3D3D3D, // 1. foreground
+
+  #C60000, // 2. alt background
+  #EEEEEE, // 3. alt foreground
+
+  #AC4142, // 4. red
+  #90A959, // 5. green
+  #DE935F, // 6. orange
+  #F0C674, // 7. yellow
+  #6A9FB4, // 8. blue
+  #1A1A1A, // 9. magenta
+
+  // 10+ FOR SCSS ONLY
+
+  #9BD3E0 // 10.
+);
+
+$height: 22px;
+$underline_height: 2px;
+
+$font-size: 14px;
+$font-family: 'tamzen7x14';
+
+// Returns a color based on the zero index
+@function color($index) {
+  @return nth($colors, $index + 1);
+}
+
+// Load a theme
+@import "themes/arrows";

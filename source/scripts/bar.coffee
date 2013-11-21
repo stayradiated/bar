@@ -3,7 +3,7 @@ gui = app = win = doc = null
 parse    = require './parse'
 config   = require './config'
 socket   = require './socket'
-template = require './template'
+Template = require './template'
 {exec}   = require 'child_process'
 
 bar =
@@ -38,6 +38,9 @@ bar =
       center: doc.querySelector '.center'
       right:  doc.querySelector '.right'
 
+    # Create template
+    template = new Template()
+
     # Listen on socket
     server = socket (buffer) ->
       info = parse buffer
@@ -46,7 +49,7 @@ bar =
       # Generate html
       for block in info
         html[block.position] ?= ''
-        html[block.position] += template(block)
+        html[block.position] += template.compile block
 
       # Insert into DOM
       for position, content of html
