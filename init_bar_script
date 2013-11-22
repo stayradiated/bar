@@ -9,15 +9,15 @@ mkfifo $PANEL_FIFO
 cat $PANEL_FIFO | ./printer.coffee &
 
 # Display time
-~/Github/baskerville/sutils/clock -s -i 10 -f 'S%A - %d %b - %I:%M %p' > $PANEL_FIFO &
+~/Github/baskerville/sutils/clock -s -i 10 -f 'S%d %b - %I:%M %p' > $PANEL_FIFO &
 
 # Timer
-while true
-do
+# while true
+# do
 
-  # Display volume
-  osascript -e "\"V\" & output volume of (get volume settings)" > $PANEL_FIFO
+#   # Display volume
+#   osascript -e "\"V\" & output volume of (get volume settings)" > $PANEL_FIFO
 
-  sleep 1
-done
+#   sleep 1
+# done
 

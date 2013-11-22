@@ -24,6 +24,8 @@ output.on 'connect', ->
 
 workspaces = ['', '  1  ', '  2  ', '  3  ']
 
+right =
+
 read = (line) ->
 
   id = line[0]
@@ -34,7 +36,7 @@ read = (line) ->
     # clock
     when 'S'
       line = line.split '-'
-      output.write "\\r\\b9 #{line[0]} \\f1 #{line[1]} \\f1 #{line[2]}"
+      output.write "\\r\\b0 #{line[0]} \\b2\\f3 #{line[1]}"
 
     # workspace
     when 'W'
@@ -45,7 +47,7 @@ read = (line) ->
         name = workspaces[number]
 
         if status is 'd' # inactive
-          text += "\\b9#{ name }"
+          text += "\\b0#{ name }"
 
         else if status is 'a' # active
           text += "\\b2\\f3#{name}\\fr\\br"
@@ -54,7 +56,7 @@ read = (line) ->
 
     # Volume
     when 'V'
-      output.write "\\c\\b9#{ line }%"
+      output.write "\\c#{ line }%"
 
     when 'T'
       output.write "\\c#{ line }"
