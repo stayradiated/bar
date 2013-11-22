@@ -119,7 +119,6 @@
               server.close();
               return this.close(true);
             });
-            bar.startScript();
             return doc.addEventListener('keydown', function(event) {
               switch (event.keyCode) {
                 case 68:
@@ -258,7 +257,7 @@
           height: 22,
           position: 'top',
           socket: '/tmp/bar.sock',
-          script: './init'
+          script: './init_bar_script'
         };
         return module.exports = config;
       }

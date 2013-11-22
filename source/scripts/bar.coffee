@@ -61,7 +61,7 @@ bar =
       @close(true)
 
     # Start the script
-    bar.startScript()
+    # bar.startScript()
 
     # Debugging
     doc.addEventListener 'keydown', (event) ->
