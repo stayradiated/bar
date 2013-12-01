@@ -26,7 +26,8 @@ bar =
 
   startScript: ->
     if config.script?
-      exec config.script
+      return exec config.script, (err, dout, derr) ->
+        console.log arguments
 
   init: ->
 
@@ -55,13 +56,14 @@ bar =
       for position, content of html
         el[position].innerHTML = content
 
+    # Start the script
+    script = bar.startScript()
+
     # Be sure to close the socket
     app.on 'close', ->
+      script.kill()
       server.close()
       @close(true)
-
-    # Start the script
-    # bar.startScript()
 
     # Debugging
     doc.addEventListener 'keydown', (event) ->

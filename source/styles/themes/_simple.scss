@@ -1,0 +1,62 @@
+
+body {
+  background: color(10);
+  color: color(1);
+  line-height: $height;
+  font-family: $font-family;
+  margin: 0;
+}
+
+.sections {
+  position: relative;
+  overflow: hidden;
+  height: $height;
+  background: color(0);
+}
+
+.center, .left, .right {
+  font-size: 0;
+}
+
+.center {
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.right {
+  float: right;
+}
+
+.left .block {
+  float: left;
+}
+
+.block {
+  display: inline-block;
+  white-space: pre;
+  font-size: $font-size;
+  vertical-align: top;
+  height: $height;
+  position: relative;
+
+  &.ul {
+    height: $height - $underline_height;
+    border-bottom: $underline_height solid transparent;
+  }
+
+  @for $i from 0 to 10 {
+    &.bg-#{$i} {
+      background: color($i);
+    }
+    &.fg-#{$i} {
+      color: color($i);
+    }
+    &.ul-#{$i} {
+      border-bottom-color: color($i);
+    }
+  }
+}
+
+

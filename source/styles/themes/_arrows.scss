@@ -298,48 +298,8 @@ body {
 
     &:before,
     &:after {
-      width: $center-margin;
-      background: $body-bg !important;
+      content: none;
     }
-
-    &:before {
-      left: 0;
-    }
-
-    &:after {
-      right: 0;
-    }
-
-  }
-
-
-
-  @each $dir in left, right {
-    $op: if($dir == left, right, left);
-    $child: if($dir == left, first, last);
-    $pseudo: if($dir == left, before, after);
-
-    .block:#{ $child }-child {
-
-      .text:#{ $pseudo } {
-
-        width: $center-margin * 2;
-        #{ $dir }: ($center-margin * -2) + $border-width;
-
-        border-#{ $dir }: $border-width solid $bar-border;
-        border-#{ $op }: $border-width solid $default-block-border;
-      }
-
-      @for $i from 0 to 10 {
-        &.bg-#{ $i } .text:#{ $pseudo } {
-          border-#{ $op }-color: border($i);
-        }
-      }
-
-    }
-
-
-
   }
 
   .arrow-in,

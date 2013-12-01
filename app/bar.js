@@ -33,7 +33,7 @@
     [
       {
         /*
-          /Volumes/Home/Projects/bar/source/scripts/init.coffee
+          /Volumes/Home/Projects/Bar/source/scripts/init.coffee
         */
 
         './bar': 1
@@ -49,7 +49,7 @@
     ], [
       {
         /*
-          /Volumes/Home/Projects/bar/source/scripts/bar.coffee
+          /Volumes/Home/Projects/Bar/source/scripts/bar.coffee
         */
 
         './parse': 2,
@@ -85,11 +85,13 @@
           },
           startScript: function() {
             if (config.script != null) {
-              return exec(config.script);
+              return exec(config.script, function(err, dout, derr) {
+                return console.log(arguments);
+              });
             }
           },
           init: function() {
-            var el, server, template;
+            var el, script, server, template;
             bar.snap();
             el = {
               left: doc.querySelector('.left'),
@@ -115,7 +117,9 @@
               }
               return _results;
             });
+            script = bar.startScript();
             app.on('close', function() {
+              script.kill();
               server.close();
               return this.close(true);
             });
@@ -145,7 +149,7 @@
     ], [
       {
         /*
-          /Volumes/Home/Projects/bar/source/scripts/parse.coffee
+          /Volumes/Home/Projects/Bar/source/scripts/parse.coffee
         */
 
       }, function(require, module, exports) {
@@ -248,7 +252,7 @@
     ], [
       {
         /*
-          /Volumes/Home/Projects/bar/source/scripts/config.coffee
+          /Volumes/Home/Projects/Bar/source/scripts/config.coffee
         */
 
       }, function(require, module, exports) {
@@ -264,7 +268,7 @@
     ], [
       {
         /*
-          /Volumes/Home/Projects/bar/source/scripts/socket.coffee
+          /Volumes/Home/Projects/Bar/source/scripts/socket.coffee
         */
 
         './config': 3
@@ -294,7 +298,7 @@
     ], [
       {
         /*
-          /Volumes/Home/Projects/bar/source/scripts/template.coffee
+          /Volumes/Home/Projects/Bar/source/scripts/template.coffee
         */
 
         './config': 3,
@@ -353,13 +357,14 @@
     ], [
       {
         /*
-          /Volumes/Home/Projects/bar/source/scripts/themes.json
+          /Volumes/Home/Projects/Bar/source/scripts/themes.json
         */
 
       }, function(require, module, exports) {
         return module.exports = {
-          "theme": "arrows",
-          "arrows": ["<div class=\"block {{ classname }}\">", "<div class=\"arrow-in\"></div>", "<div class=\"text\">{{ text }}</div>", "<div class=\"arrow-out\"></div>", "</div>"]
+          "theme": "simple",
+          "arrows": ["<div class=\"block {{ classname }}\">", "<div class=\"arrow-in\"></div>", "<div class=\"text\">{{ text }}</div>", "<div class=\"arrow-out\"></div>", "</div>"],
+          "simple": ["<div class=\"block {{ classname }}\">", "{{ text }}", "</div>"]
         };
       }
     ]
