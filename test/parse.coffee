@@ -1,5 +1,5 @@
 assert = require 'assert'
-parse = require '../source/parse'
+parse = require '../source/scripts/parse'
 
 describe 'Parse', ->
 
@@ -122,6 +122,15 @@ describe 'Parse', ->
     assert.equal info[1].foreground, 9
     assert.equal info[1].background, 2
     assert.equal info[1].underline, 4
+
+  it 'adding icons', ->
+
+    input = '\\i3 Hello World \\ir No icon \\i0 An icon'
+    info = parse(input)
+
+    assert.equal info[0].icon, 3
+    assert.equal info[1].icon, -1
+    assert.equal info[2].icon, 0
 
 
   it 'reset formatting', ->

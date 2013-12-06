@@ -160,6 +160,7 @@
               obj = {};
             }
             this.text = '';
+            this.icon = obj.icon != null ? obj.icon : -1;
             this.position = obj.position != null ? obj.position : 'left';
             this.underline = obj.underline != null ? obj.underline : -1;
             this.foreground = obj.foreground != null ? obj.foreground : -1;
@@ -170,7 +171,7 @@
 
         })();
         parse = function(data) {
-          var block, char, createNewBlock, info, isBackground, isCommand, isForeground, isUnderline, text, _i, _len;
+          var block, char, createNewBlock, info, isBackground, isCommand, isForeground, isIcon, isUnderline, text, _i, _len;
           info = [];
           text = data.toString();
           isCommand = false;
@@ -214,27 +215,37 @@
                   break;
                 case 'u':
                   isUnderline = true;
+                  break;
+                case 'i':
+                  isIcon = true;
               }
             } else if (isForeground) {
               isForeground = false;
               if (char === 'r') {
                 block.foreground = -1;
               } else {
-                block.foreground = parseInt(char);
+                block.foreground = parseInt(char, 10);
               }
             } else if (isBackground) {
               isBackground = false;
               if (char === 'r') {
                 block.background = -1;
               } else {
-                block.background = parseInt(char);
+                block.background = parseInt(char, 10);
               }
             } else if (isUnderline) {
               isUnderline = false;
               if (char === 'r') {
                 block.underline = -1;
               } else {
-                block.underline = parseInt(char);
+                block.underline = parseInt(char, 10);
+              }
+            } else if (isIcon) {
+              isIcon = false;
+              if (char === 'r') {
+                block.icon = -1;
+              } else {
+                block.icon = parseInt(char, 10);
               }
             } else if (char === '\\') {
               isCommand = true;
@@ -261,7 +272,7 @@
           height: 22,
           position: 'top',
           socket: '/tmp/bar.sock',
-          script: './init_bar_script'
+          script: '~/Projects/Bar/init_bar_script'
         };
         return module.exports = config;
       }
@@ -342,6 +353,10 @@
             if (block.underline > -1) {
               classname.push('ul');
               classname.push('ul-' + block.underline);
+            }
+            if (block.icon > -1) {
+              classname.push('ic');
+              classname.push('ic-' + block.icon);
             }
             return this.template({
               text: block.text,

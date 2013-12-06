@@ -22,7 +22,7 @@ class Template
 
   compile: (block) =>
 
-    classname = [];
+    classname = []
 
     if block.background > -1
       classname.push 'bg'
@@ -35,6 +35,10 @@ class Template
     if block.underline  > -1
       classname.push 'ul'
       classname.push 'ul-' + block.underline
+
+    if block.icon > -1
+      classname.push 'ic'
+      classname.push 'ic-' + block.icon
 
     @template
       text: block.text

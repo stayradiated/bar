@@ -4,6 +4,7 @@ class Block
 
   constructor: (obj = {}) ->
     @text = ''
+    @icon       = if obj.icon?       then obj.icon else -1
     @position   = if obj.position?   then obj.position else 'left'
     @underline  = if obj.underline?  then obj.underline else -1
     @foreground = if obj.foreground? then obj.foreground else -1
@@ -52,6 +53,8 @@ parse = (data) ->
           isBackground = yes
         when 'u'
           isUnderline = yes
+        when 'i'
+          isIcon = yes
 
     # Set foreground color
     else if isForeground
@@ -59,7 +62,7 @@ parse = (data) ->
       if char is 'r'
         block.foreground = -1
       else
-        block.foreground = parseInt char
+        block.foreground = parseInt char, 10
 
     # Set background color
     else if isBackground
@@ -67,7 +70,7 @@ parse = (data) ->
       if char is 'r'
         block.background = -1
       else
-        block.background = parseInt char
+        block.background = parseInt char, 10
 
     # Set underline color
     else if isUnderline
@@ -75,7 +78,15 @@ parse = (data) ->
       if char is 'r'
         block.underline = -1
       else
-        block.underline = parseInt char
+        block.underline = parseInt char, 10
+
+    # Set icon
+    else if isIcon
+      isIcon = no
+      if char is 'r'
+        block.icon = -1
+      else
+        block.icon = parseInt char, 10
 
     # Backslash is the command char
     else if char is '\\'

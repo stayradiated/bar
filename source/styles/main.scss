@@ -3,34 +3,60 @@ $colors: (
 
   // 0 - 10 FOR SCSS AND SOCKET
 
-  #6d6e71, // 0. background
-  #eeeeee, // 1. foreground
+  #282828, // 0. background
+  #c5c8c6, // 1. foreground
 
   #1d1f21, // 2. alt background
-  #c5c8c6, // 3. alt foreground
+  #eeeeee, // 3. alt foreground
 
-  #AC4142, // 4. red
-  #90A959, // 5. green
-  #DE935F, // 6. orange
-  #F0C674, // 7. yellow
-  #6A9FB4, // 8. blue
-  #d1d2d4, // 9. magenta
+  #f25a4f, // 4. red
+  #68c280, // 5. green
+  #e98b28, // 6. orange
+  #a2d060, // 7. yellow
+  #0495d3, // 8. blue
+  #966aac, // 9. magenta
 
   // 10+ FOR SCSS ONLY
 
-  #404041 // 10.
+  #333333 // 10.
 );
 
 $height: 22px;
 $underline_height: 2px;
 
-$font-size: 14px;
-$font-family: 'tamzen7x14';
+$font-size: 12px;
+$font-family: 'Drift';
 
 // Returns a color based on the zero index
 @function color($index) {
   @return nth($colors, $index + 1);
 }
 
+body {
+  -webkit-font-smoothing: none;
+}
+
+$icons: (
+  'term',
+  'net',
+  'chat',
+  'battery',
+  'clock',
+  'cpu',
+  'disk',
+  'ghost',
+  'invader',
+  'mail',
+  'music',
+  'speaker'
+);
+
+@function iconURL($index) {
+  $name: nth($icons, $index + 1);
+  @return url(icons/#{ $name }.png);
+}
+
 // Load a theme
 @import "themes/_simple";
+
+

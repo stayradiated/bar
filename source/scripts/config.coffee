@@ -9,6 +9,6 @@ config =
   socket: '/tmp/bar.sock'
 
   # Script to run when we start the app
-  script: './init_bar_script'
+  script: '~/Projects/Bar/init_bar_script'
 
 module.exports = config

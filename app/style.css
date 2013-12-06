@@ -1,15 +1,86 @@
 body {
-  background: #404041;
-  color: #eeeeee;
+  -webkit-font-smoothing: none; }
+
+.block.ic:before {
+  display: inline-block;
+  content: "";
+  margin-top: 3px;
+  width: 16px;
+  height: 16px;
+  background: #c5c8c6; }
+
+.block.ic-0:before {
+  -webkit-mask-box-image: url(icons/term.png); }
+
+.block.ic.fg-0:before {
+  background: #282828; }
+
+.block.ic-1:before {
+  -webkit-mask-box-image: url(icons/net.png); }
+
+.block.ic.fg-1:before {
+  background: #c5c8c6; }
+
+.block.ic-2:before {
+  -webkit-mask-box-image: url(icons/chat.png); }
+
+.block.ic.fg-2:before {
+  background: #1d1f21; }
+
+.block.ic-3:before {
+  -webkit-mask-box-image: url(icons/battery.png); }
+
+.block.ic.fg-3:before {
+  background: #eeeeee; }
+
+.block.ic-4:before {
+  -webkit-mask-box-image: url(icons/clock.png); }
+
+.block.ic.fg-4:before {
+  background: #f25a4f; }
+
+.block.ic-5:before {
+  -webkit-mask-box-image: url(icons/cpu.png); }
+
+.block.ic.fg-5:before {
+  background: #68c280; }
+
+.block.ic-6:before {
+  -webkit-mask-box-image: url(icons/disk.png); }
+
+.block.ic.fg-6:before {
+  background: #e98b28; }
+
+.block.ic-7:before {
+  -webkit-mask-box-image: url(icons/ghost.png); }
+
+.block.ic.fg-7:before {
+  background: #a2d060; }
+
+.block.ic-8:before {
+  -webkit-mask-box-image: url(icons/invader.png); }
+
+.block.ic.fg-8:before {
+  background: #0495d3; }
+
+.block.ic-9:before {
+  -webkit-mask-box-image: url(icons/mail.png); }
+
+.block.ic.fg-9:before {
+  background: #966aac; }
+
+body {
+  background: #333333;
+  color: #c5c8c6;
   line-height: 22px;
-  font-family: "tamzen7x14";
+  font-family: "Drift";
   margin: 0; }
 
 .sections {
   position: relative;
   overflow: hidden;
   height: 22px;
-  background: #6d6e71; }
+  background: #282828; }
 
 .center, .left, .right {
   font-size: 0; }
@@ -29,7 +100,7 @@ body {
 .block {
   display: inline-block;
   white-space: pre;
-  font-size: 14px;
+  font-size: 12px;
   vertical-align: top;
   height: 22px;
   position: relative; }
@@ -37,17 +108,17 @@ body {
     height: 20px;
     border-bottom: 2px solid transparent; }
   .block.bg-0 {
-    background: #6d6e71; }
+    background: #282828; }
   .block.fg-0 {
-    color: #6d6e71; }
+    color: #282828; }
   .block.ul-0 {
-    border-bottom-color: #6d6e71; }
+    border-bottom-color: #282828; }
   .block.bg-1 {
-    background: #eeeeee; }
+    background: #c5c8c6; }
   .block.fg-1 {
-    color: #eeeeee; }
+    color: #c5c8c6; }
   .block.ul-1 {
-    border-bottom-color: #eeeeee; }
+    border-bottom-color: #c5c8c6; }
   .block.bg-2 {
     background: #1d1f21; }
   .block.fg-2 {
@@ -55,44 +126,44 @@ body {
   .block.ul-2 {
     border-bottom-color: #1d1f21; }
   .block.bg-3 {
-    background: #c5c8c6; }
+    background: #eeeeee; }
   .block.fg-3 {
-    color: #c5c8c6; }
+    color: #eeeeee; }
   .block.ul-3 {
-    border-bottom-color: #c5c8c6; }
+    border-bottom-color: #eeeeee; }
   .block.bg-4 {
-    background: #ac4142; }
+    background: #f25a4f; }
   .block.fg-4 {
-    color: #ac4142; }
+    color: #f25a4f; }
   .block.ul-4 {
-    border-bottom-color: #ac4142; }
+    border-bottom-color: #f25a4f; }
   .block.bg-5 {
-    background: #90a959; }
+    background: #68c280; }
   .block.fg-5 {
-    color: #90a959; }
+    color: #68c280; }
   .block.ul-5 {
-    border-bottom-color: #90a959; }
+    border-bottom-color: #68c280; }
   .block.bg-6 {
-    background: #de935f; }
+    background: #e98b28; }
   .block.fg-6 {
-    color: #de935f; }
+    color: #e98b28; }
   .block.ul-6 {
-    border-bottom-color: #de935f; }
+    border-bottom-color: #e98b28; }
   .block.bg-7 {
-    background: #f0c674; }
+    background: #a2d060; }
   .block.fg-7 {
-    color: #f0c674; }
+    color: #a2d060; }
   .block.ul-7 {
-    border-bottom-color: #f0c674; }
+    border-bottom-color: #a2d060; }
   .block.bg-8 {
-    background: #6a9fb4; }
+    background: #0495d3; }
   .block.fg-8 {
-    color: #6a9fb4; }
+    color: #0495d3; }
   .block.ul-8 {
-    border-bottom-color: #6a9fb4; }
+    border-bottom-color: #0495d3; }
   .block.bg-9 {
-    background: #d1d2d4; }
+    background: #966aac; }
   .block.fg-9 {
-    color: #d1d2d4; }
+    color: #966aac; }
   .block.ul-9 {
-    border-bottom-color: #d1d2d4; }
+    border-bottom-color: #966aac; }
