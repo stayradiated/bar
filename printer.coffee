@@ -57,4 +57,4 @@ read = (line) ->
       output.write "\\l#{ line }%"
 
     when 'T'
-      output.write "\\c#{ line }"
+      output.write "\\l #{ line }"
