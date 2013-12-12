@@ -1,9 +1,9 @@
 BAR
 ===
 
-Basically it's BAR (Bar Ain't Recursive) by LemonBoy but using Node-Webkit.
+Basically it's [BAR (Bar Ain't Recursive) by LemonBoy](https://github.com/LemonBoy/bar) but using Node-Webkit.
 
-It uses Unix sockets to receive data in the same format as BAR.
+It uses unix sockets to receive data in the same format as BAR.
 
 Positives:
 
@@ -19,7 +19,7 @@ Negatives:
   - Can be moved by window managers
   - Rounded corners
 
-## Using
+## Usage
 
 You'll need to download a copy of [node-webkit](https://github.com/rogerwang/node-webkit#downloads).
 
@@ -29,6 +29,12 @@ On OS X with zsh, I added `alias nw="~/Applications/node-webkit.app/Contents/Mac
     nw .
     
 To close the app, simply focus on it, and press `Cmd + W`. This will automatically shutdown the sockets server as well.
+
+## Configuration
+
+Settings are stored in `source/scripts/config.coffee`. Recompile the application by running `cake build`.
+
+Edit colours and load themes in `source/styles/main.scss`. Recompile the styles by running `npm run-script css`.
 
 ## Hiding the menubar
 
