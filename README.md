@@ -1,4 +1,4 @@
-bar
+BAR
 ===
 
 Basically it's BAR (Bar Ain't Recursive) by LemonBoy but using Node-Webkit.
@@ -23,10 +23,16 @@ Negatives:
 
 You'll need to download a copy of [node-webkit](https://github.com/rogerwang/node-webkit#downloads).
 
-On OS X with zsh, I added `alias nw=~/Applications/node-webkit.app/Contents/MacOS/node-webkit` so I could easily start the app whenever I wanted:
+On OS X with zsh, I added `alias nw="~/Applications/node-webkit.app/Contents/MacOS/node-webkit"` to my .zshrc so I could easily start the app whenever I wanted by:
 
     cd ~/Projects/Bar
     nw .
+    
+To close the app, simply focus on it, and press `Cmd + W`. This will automatically shutdown the sockets server as well.
+
+## Hiding the menubar
+
+I recommend you use a SIMBL plugin like [Menufela](https://github.com/fjolnir/menufela).
 
 ## Multiple Desktops
 
