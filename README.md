@@ -19,6 +19,15 @@ Negatives:
   - Can be moved by window managers
   - Rounded corners
 
+## Using
+
+You'll need to download a copy of [node-webkit](https://github.com/rogerwang/node-webkit#downloads).
+
+On OS X with zsh, I added `alias nw=~/Applications/node-webkit.app/Contents/MacOS/node-webkit` so I could easily start the app whenever I wanted:
+
+    cd ~/Projects/Bar
+    nw .
+
 ## Multiple Desktops
 
 To show on multiple desktops, right click the dock icon, and select **Options** > **All Desktops**.
