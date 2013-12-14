@@ -17,7 +17,8 @@ output.on 'connect', ->
   input.setEncoding 'utf8'
 
   input.on 'data', (line) ->
-    read line
+    text = read line
+    if text then output.write text
 
   input.on 'end', ->
     console.log 'end'
@@ -56,12 +57,12 @@ read = (line) ->
     # clock
     when 'S'
       line = line.split '-'
-      output.write "\\r\\b0 #{line[0]} \\b2\\f3 #{line[1]} \\fr\\br"
+      return "\\r\\b0 #{line[0]} \\b2\\f3 #{line[1]} \\fr\\br"
 
     # workspace
     when 'W'
       text = '\\c'
-      for workspace in line.split ':'
+      for workspace in line.split(':')
         status = workspace[0]
         number = workspace[1]
         name = workspaces[number]
@@ -72,11 +73,11 @@ read = (line) ->
         else if status is 'a' # active
           text += "\\b2\\u4\\f3#{ name }\\ur\\fr\\br\\ir"
 
-      output.write text
+      return text
 
     # Volume
     when 'V'
-      output.write "\\l#{ line }%"
+      return "\\l #{ line }%"
 
     when 'T'
-      output.write "\\l #{ line }"
+      return "\\l #{ line }"
