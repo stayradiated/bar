@@ -37,18 +37,22 @@ body {
 }
 
 $icons: (
-  'term',
-  'net',
-  'chat',
-  'battery',
-  'clock',
-  'cpu',
-  'disk',
-  'ghost',
-  'invader',
-  'mail',
-  'music',
-  'speaker'
+
+  'term',    // 0
+  'net',     // 1
+  'chat',    // 2
+  'battery', // 3
+  'clock',   // 4
+  'cpu',     // 5
+  'disk',    // 6
+  'ghost',   // 7
+  'invader', // 8
+  'mail',    // 9
+
+  // Spares
+
+  'music'    // 10
+  'speaker'  // 11
 );
 
 @function iconURL($index) {
