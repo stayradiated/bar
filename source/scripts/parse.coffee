@@ -15,6 +15,8 @@ parse = (data) ->
   info = []
   text = data.toString()
 
+  console.log text
+
   isCommand = no
 
   block = null

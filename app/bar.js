@@ -174,6 +174,7 @@
           var block, char, createNewBlock, info, isBackground, isCommand, isForeground, isIcon, isUnderline, text, _i, _len;
           info = [];
           text = data.toString();
+          console.log(text);
           isCommand = false;
           block = null;
           createNewBlock = function(obj) {
@@ -271,8 +272,7 @@
         config = {
           height: 22,
           position: 'top',
-          socket: '/tmp/bar.sock',
-          script: '~/Projects/Bar/init_bar_script'
+          socket: '/tmp/bar.sock'
         };
         return module.exports = config;
       }
