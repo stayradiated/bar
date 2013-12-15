@@ -9,4 +9,4 @@ mkfifo $PANEL_FIFO
 cat $PANEL_FIFO | coffee ~/Projects/Bar/printer.coffee &
 
 # Display time
-~/Github/baskerville/sutils/clock -s -i 10 -f 'S%d %b - %I:%M %p' > $PANEL_FIFO &
+# ~/Github/baskerville/sutils/clock -s -i 10 -f 'S%d %b - %I:%M %p' > $PANEL_FIFO &
