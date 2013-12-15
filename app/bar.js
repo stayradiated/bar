@@ -272,7 +272,8 @@
         config = {
           height: 22,
           position: 'top',
-          socket: '/tmp/bar.sock'
+          socket: '/tmp/bar.sock',
+          script: '~/Projects/Bar/init_bar_script'
         };
         return module.exports = config;
       }
