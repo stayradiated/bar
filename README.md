@@ -1,6 +1,8 @@
 BAR
 ===
 
+![BAR](image.png)
+
 Basically it's [BAR (Bar Ain't Recursive) by LemonBoy](https://github.com/LemonBoy/bar) but using Node-Webkit.
 
 It uses unix sockets to receive data in the same format as BAR.
