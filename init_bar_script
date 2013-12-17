@@ -6,7 +6,7 @@ PANEL_FIFO=/tmp/bar.fifo
 mkfifo $PANEL_FIFO
 
 # Run bar
-cat $PANEL_FIFO | coffee ~/Projects/Bar/printer.coffee &
+cat $PANEL_FIFO | node ~/Projects/Bar/printer.js &
 
 # Display time
-# ~/Github/baskerville/sutils/clock -s -i 10 -f 'S%d %b - %I:%M %p' > $PANEL_FIFO &
+~/Github/baskerville/sutils/clock -s -i 10 -f 'S%d %b - %I:%M %p' > $PANEL_FIFO &

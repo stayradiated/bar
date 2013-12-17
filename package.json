@@ -13,7 +13,7 @@
     "transparent": true
   },
   "scripts": {
-    "test": "mocha --compilers coffee:coffee-script test",
+    "test": "mocha test",
     "css": "sass --watch source/styles/main.scss:app/style.css"
   },
   "repository": {
@@ -28,7 +28,7 @@
   "bugs": {
     "url": "https://github.com/stayradiated/bar/issues"
   },
-  "dependencies": {
-    "coffee-scrunch": "~0.1.4"
+  "devDependencies": {
+    "mocha": "1.15.x"
   }
 }
