@@ -21,7 +21,7 @@
 
     // Optional: script file to run on startup
     // Will be killed when the Bar is closed
-    // script: '~/Projects/Bar/init_bar_script'
+    // script: '~/Projects/Bar/bin/init_bar_script.sh'
 
   };
 

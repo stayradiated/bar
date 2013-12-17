@@ -44,17 +44,18 @@ Negatives:
 
 ### 2. Using pipes
 
-Unix sockets can be useful, but you probably want to use a named pipe instead.
+If you have used lemonboys bar, then you're probably used using pipes to write
+text to it.
 
-4. Edit the configuration file at `app/js/config.js`. Edit the script path to match where you cloned the repo to.
+4. Edit the configuration file at `app/js/config.js`. Uncomment line 24 and edit the script path to match where you cloned the repo to.
 
-        script: '~/Projects/Bar/init_bar_script'
+        script: '~/Projects/Bar/bin/init_bar_script.sh'
 
   You can also edit the height of the bar, and it's position on the screen in this file.
 
-5. Then edit the file `init_bar_script` in the root of folder. You will need to change the path on line 9:
+5. Then edit the file `bin/init_bar_script.sh`. You will need to change the path on line 9:
 
-        cat $PANEL_FIFO | node ~/Projects/Bar/printer.js &
+        cat $PANEL_FIFO | node ~/Projects/Bar/bin/printer.js &
 
 8. Start the bar again using the same command from 1.4. This is where using a simple terminal alias `alias nw="/Applications/node-webkit.app/Contents/MacOS/node-webkit"` comes in handy, as you can just run `nw .` whenever you want to start the app.
 
