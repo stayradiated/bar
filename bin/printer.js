@@ -3,7 +3,7 @@
 
   var config, formatInput, net, output, read, icons;
 
-  config = require('./app/js/config');
+  config = require('../app/js/config');
   net = require('net');
 
   // Take input from std in and format it
