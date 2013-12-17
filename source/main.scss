@@ -25,7 +25,7 @@ $height: 22px;
 $underline_height: 2px;
 
 $font-size: 12px;
-$font-family: 'Tamzen6x12';
+$font-family: 'Tamzen6x12', 'monaco';
 
 // Returns a color based on the zero index
 @function color($index) {

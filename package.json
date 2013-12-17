@@ -14,7 +14,7 @@
   },
   "scripts": {
     "test": "mocha test",
-    "css": "sass --watch source/styles/main.scss:app/style.css"
+    "css": "sass source/main.scss:app/style.css"
   },
   "repository": {
     "type": "git",
