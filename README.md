@@ -64,33 +64,20 @@ Unix sockets can be useful, but you probably want to use a named pipe instead.
 
 11. Try running the command `echo 'S i can print text- to the bar' > /tmp/bar.fifo`. With any luck you should see the text appear in the bar. If you can't, try opening the dev panel by focusing on the bar and pressing ctrl-d and going to the console tab. You should see some text like this: http://i.imgur.com/yrmt9va.png.
 
-### 3. Editing styles
-
-Styles use SASS. You will need to edit them if you want to change the font and colours.
+### 3. Editing fonts and colours
 
 1. Install SASS by following the instructions at http://sass-lang.com/install (bottom right section).
 
-2. Colors, fonts and height are defined in `source/styles/main.scss`.
+2. Colors, fonts and line height are defined in `source/main.scss`.
 
-3. You can also create and edit themes, the default one is `themes/_simple.scss`. 
-
-4. To compile the SASS, use the command `npm run-script css` from the bar folder. This will watch the styles and automatically compile them when you edit them.
+4. To compile the SASS, use the command `npm run-script css` from the bar folder.
 
 5. To refresh the styles that Bar is using, focus on it, and then press the `r` key.
 
-### 4. Tips
+### 4. Daily routine
 
-1. You can open a developer terminal by pressing `Ctrl-d`.
-2. If you accidentally move the Bar from it's position, use the `s` key.
-3. If you are editing the SCSS, I suggest you use the html files in `app/tests`. It's much easier to quickly refresh and debug them.
-
-Well that's about it. I'll be glad to answer anymore questions you have.
-
-## Usage
-
-You'll need to download a copy of [node-webkit](https://github.com/rogerwang/node-webkit#downloads).
-
-On OS X with zsh, I added `alias nw="~/Applications/node-webkit.app/Contents/MacOS/node-webkit"` to my .zshrc so I could easily start the app whenever I wanted by:
+Once you have everything set up, you only need to do the following when you
+start your computer to get Bar running:
 
     cd ~/Projects/Bar
     nw .
@@ -99,9 +86,9 @@ To close the app, simply focus on it, and press `Cmd + W`. This will automatical
 
 ## Configuration
 
-Settings are stored in `source/scripts/config.coffee`. Recompile the application by running `cake build`.
+Settings are stored in `app/js/config.js`.
 
-Edit colours and load themes in `source/styles/main.scss`. Recompile the styles by running `npm run-script css`.
+Edit colours and load themes in `source/main.scss`. Recompile the styles by running `npm run-script css`.
 
 ## Hiding the menubar
 
@@ -114,9 +101,10 @@ To show on multiple desktops, right click the dock icon, and select **Options** 
 ## Window Managers
 
 If you use something like Zephyros, then you will be be annoyed when you accidentally move the Bar from it's position. To fix this I added a small `if` statement in my scrip that would ignore windows with height of `< ~30` pixels.
+
 ## Shadows
 
-Either use the node-webkit transparency branch, or something like https://github.com/puffnfresh/toggle-osx-shadows
+Use this: https://github.com/puffnfresh/toggle-osx-shadows
 
 ## Rounded corners
 
