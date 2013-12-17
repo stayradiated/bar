@@ -1,0 +1,15 @@
+{
+
+  "defaultTheme": "simple",
+
+  "arrows": ["<div class=\"block {{ classname }}\">",
+    "<div class=\"arrow-in\"></div>",
+    "<div class=\"text\">{{ text }}</div>",
+    "<div class=\"arrow-out\"></div>",
+  "</div>"],
+
+  "simple": ["<div class=\"block {{ classname }}\">",
+    "{{ text }}",
+  "</div>"]
+
+}

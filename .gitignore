@@ -1,4 +1,3 @@
 node_modules
 .sass-cache
-app/js/*
 npm-debug.log
