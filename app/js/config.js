@@ -1,13 +1,17 @@
 (function () {
   'use strict';
 
+  var root, config;
+
   /*
    * Bar Configuration
    * This could be just a JSON file but I thought it would be better to use
    * JS just for the sake of having comments.
    */
 
-  var config = {
+  root = '/Volumes/Home/Projects/Bar/bin/';
+
+  config = {
 
     // Height of the panel in pixels
     height: 22,
@@ -21,7 +25,10 @@
 
     // Optional: script file to run on startup
     // Will be killed when the Bar is closed
-    script: '~/Projects/Bar/bin/init_bar_script.sh'
+    script: root + 'init_bar_script.sh',
+
+    // Where to run the script from
+    cwd: root
 
   };
 

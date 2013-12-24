@@ -1,13 +1,14 @@
 #!/bin/sh
 
 PANEL_FIFO=/tmp/bar.fifo
-PRINTER=~/Projects/Bar/bin/printer.js
+PRINTER=/Volumes/Home/Projects/Bar/bin/printer.js
+NODE=/usr/local/bin/node
 
 [ -e $PANEL_FIFO ] && rm $PANEL_FIFO
 mkfifo $PANEL_FIFO
 
 # Run bar and keep reading from fifo
-tail -n +1 -f $PANEL_FIFO | node $PRINTER & 
+tail -n +1 -f $PANEL_FIFO | $NODE $PRINTER &
 
 while true
 do

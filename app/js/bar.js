@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  var template, app, bar, config, doc, exec, gui, parse, socket, win;
+  var template, app, bar, config, doc, child, gui, parse, socket, win;
 
   gui = app = win = doc = null;
 
@@ -9,7 +9,7 @@
   config   = require('./config');
   socket   = require('./socket');
   template = require('./template');
-  exec     = require('child_process').exec;
+  child    = require('child_process');
 
   bar = {
 
@@ -39,7 +39,9 @@
     // Start shell script
     startScript: function () {
       if (config.script) {
-        return exec(config.script, function (err, dout, derr) {
+        return child.execFile(config.script, {
+          cwd: config.cwd
+        }, function (err, dout, derr) {
           console.log(arguments);
         });
       }
